@@ -1,46 +1,98 @@
-# Getting Started with Create React App
+# React Router v6 基礎学習プロジェクト
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+このプロジェクトは、React Router v6 を使用した基本的なルーティングの実装例です。
 
-## Available Scripts
+## 機能概要
 
-In the project directory, you can run:
+このアプリケーションには以下の 2 つのページが実装されています：
 
-### `npm start`
+1. **ホームページ** (`/`)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   - 「Home ページです」というメッセージを表示
+   - 「About へ移動」ボタンで About ページへ遷移
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. **About ページ** (`/about`)
+   - 「About ページです」というメッセージを表示
+   - 「Home へ戻る」ボタンでホームページへ遷移
 
-### `npm test`
+## 技術スタック
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React 18
+- TypeScript
+- React Router v6
 
-### `npm run build`
+## プロジェクト構造
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+router-basic/
+├── src/
+│   ├── pages/
+│   │   ├── HomePage.tsx  // ホームページコンポーネント
+│   │   └── AboutPage.tsx // Aboutページコンポーネント
+│   ├── App.tsx          // ルーティング設定
+│   └── ...
+└── ...
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## セットアップ方法
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. 依存パッケージのインストール:
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. 開発サーバーの起動:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+アプリケーションは http://localhost:3000 で起動します。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 実装の特徴
 
-## Learn More
+1. **React Router v6 の使用**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - `BrowserRouter`を使用したルーティングのセットアップ
+   - `Routes`と`Route`によるルート定義
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **プログラマティックなナビゲーション**
+
+   - `useNavigate()`フックを使用
+   - ボタンクリックによる画面遷移の実装
+
+3. **TypeScript の活用**
+   - 型安全なコンポーネント実装
+   - `React.FC`による関数コンポーネントの型定義
+
+## 学習ポイント
+
+1. **基本的なルーティング設定**
+
+   ```tsx
+   <BrowserRouter>
+     <Routes>
+       <Route path="/" element={<HomePage />} />
+       <Route path="/about" element={<AboutPage />} />
+     </Routes>
+   </BrowserRouter>
+   ```
+
+2. **useNavigate()フックの使用**
+   ```tsx
+   const navigate = useNavigate();
+   // ページ遷移の実行
+   navigate("/about");
+   ```
+
+## 注意点
+
+- このプロジェクトは React Router v6 の基礎学習用です
+- 実際のプロダクションでは、エラーハンドリングやローディング状態の管理なども考慮する必要があります
+
+## 参考リンク
+
+- [React Router 公式ドキュメント](https://reactrouter.com/)
+- [React 公式ドキュメント](https://react.dev/)
+- [TypeScript 公式ドキュメント](https://www.typescriptlang.org/)
